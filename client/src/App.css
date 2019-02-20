@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+  font-family: BC-Alphapipe, sans-serif;
+  font-weight: 1000;
+  font-style: normal;
+
+}
+
+#availableRooms {
+  /* border-style: solid; */
+  display: inline;
+  /* padding-left: %;
+  padding-right: 20%;
+  padding-bottom: 25%; */
+  /* border-width: 3px; */
+  /* border-color: #f09491; */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f09491;
+}
+
+#houselistings {
+background-color: white;
+
+}
+
+span {
+  margin-left: 60;
+  margin-right: 60px
+}
+
+
+li {
+  float: right;
+}
+
+input {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
