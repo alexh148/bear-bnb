@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/navBar';
 import ViewHeader from './components/Header/View';
 import AddHeader from './components/Header/Add';
+import BookHeader from './components/Header/Book';
 import DateForm from './components/MainBody/View';
 import AddMain from './components/MainBody/Add';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -17,6 +18,7 @@ class App extends Component {
         <NavBar />
         <p id="header">
         <Route exact path = "/spaces" component={ViewHeader} />
+        <Route exact path = "/spaces/book" component={BookHeader} />
         <Route exact path = "/spaces/new" component={AddHeader} />
         </p>
         <p id='mainbody'>
