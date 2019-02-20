@@ -3,11 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const Data = require("./data");
+const cors = require("cors");
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
+app.use(cors())
 // this is our MongoDB database
 const dbRoute = "mongodb+srv://alexh148:Potato4Parrot@cluster0-zhwno.mongodb.net/test?retryWrites=true";
 
