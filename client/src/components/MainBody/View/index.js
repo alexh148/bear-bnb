@@ -62,6 +62,31 @@ class PropertyListContainer extends Component {
           location: 'London'
         },
         {
+          title: '3 bed spacious townhouse',
+          price: '£50 per night',
+          location: 'London'
+        },
+        {
+          title: '3 bed spacious townhouse',
+          price: '£50 per night',
+          location: 'London'
+        },
+        {
+          title: '3 bed spacious townhouse',
+          price: '£50 per night',
+          location: 'London'
+        },
+        {
+          title: '3 bed spacious townhouse',
+          price: '£50 per night',
+          location: 'London'
+        },
+        {
+          title: '3 bed spacious townhouse',
+          price: '£50 per night',
+          location: 'London'
+        },
+        {
           title: '10 bed mansion spaceship',
           price: '£400 per night',
           location: 'Space'
