@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/alexh148/bear-bnb#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "concurrently": "^4.1.0"
-  }
+  },
+  "devDependencies": {}
 }
