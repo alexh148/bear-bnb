@@ -48,7 +48,7 @@ class App extends Component {
 
   // our put method that uses our backend api
   // to create new query into our data base
-  putDataToDB = message => {
+  putDataToDB = (title, description, price, dateFrom, dateTo) => {
     let currentIds = this.state.data.map(data => data.id);
     let idToBeAdded = 0;
     while (currentIds.includes(idToBeAdded)) {
@@ -57,9 +57,14 @@ class App extends Component {
 
     axios.post("http://localhost:3001/api/putData", {
       id: idToBeAdded,
-      message: message
+      title: title,
+      description: description,
+      price: price,
+      availableFrom: dateFrom,
+      availableTo: dateTo
     });
   };
+  putDataToDB("house", "lovely hosue in london", 300, 20190210, 20190213)
 
 
   // our delete method that uses our backend api

@@ -11,16 +11,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class App extends Component {
-  // our delete method that uses our backend api
-  // to remove existing database information
-  deleteFromDB = idTodelete => {
-    let objIdToDelete = null;
-    this.state.data.forEach(dat => {
-      if (dat.id === idTodelete) {
-        objIdToDelete = dat._id;
-      }
-    });
-    // LOOK HERE
   render() {
     return (
       <Router>
@@ -42,20 +32,6 @@ class App extends Component {
     );
   };
 };
-
-
-//LOOK HERE
-  // our update method that uses our backend api
-  // to overwrite existing data base information
-  updateDB = (idToUpdate, updateToApply) => {
-    let objIdToUpdate = null;
-    this.state.data.forEach(dat => {
-      if (dat.id === idToUpdate) {
-        objIdToUpdate = dat._id;
-      }
-    });
-
-
 
 
 export default App;
