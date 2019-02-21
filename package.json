@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\"",
-    "heroku-prebuild": "npm install --prefix client && npm install --prefix backend"
+    "heroku-prebuild": "npm install --prefix client && npm install --prefix backend",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "^11.10.0"
+    "node": "^11.10.0",
+    "npm": "^6.7.0"
   }
 }
