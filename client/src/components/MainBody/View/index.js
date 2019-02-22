@@ -19,11 +19,15 @@ class DateForm extends Component {
   }
 
   handleToChange(event) {
-    this.currentTo = event.target.value;
+    this.currentTo = event.target.value
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    // var x = this.currentTo;
+    // var y = this.currentFrom;
+    // console.log(x);
+    // console.log(y);
     this.setState({from: this.currentFrom, to: this.currentTo});
   }
 
@@ -49,11 +53,21 @@ class DateForm extends Component {
 class PropertyListContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = ({data: ['hello']});
+    this.state = ({data: [], dateFrom: '', dateTo: ''});
   }
 
 
-
+  getSpecificDates = function (response){
+    var filteredResults;
+    var g1 = this.state.dateFrom;
+    var g2 = this.state.dateTo;
+    if (g1 && g2) {
+      filteredResults = response.filter(function(x) { return (x.availableFrom <= g1) && (x.availableTo >= g2)});
+      this.setState({data: filteredResults});
+    } else {
+      this.setState({data: response})
+    }
+  }
 
   getData = function () {
     return fetch('http://localhost:3001/api/getData').then(function(response){
@@ -64,18 +78,21 @@ class PropertyListContainer extends Component {
   }
 
   setData() {
-    this.getData().then((resp)=> this.setState({data: resp}))
+    this.getData().then((resp)=> this.getSpecificDates(resp));
+    console.log(this.state.dateFrom);
   }
 
 
   componentDidMount(){
     this.setData()
-
+    // this.getSpecificDates('2019-03-01T00:00:00.000Z', '2019-03-08T00:00:00.000Z')
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.getData();
-  // }
+  componentWillReceiveProps(nextProps) {
+    this.setData();
+    console.log(nextProps);
+    this.setState({dateFrom: nextProps.dates.from, dateTo: nextProps.dates.to})
+  }
 
   render() {
     return (
