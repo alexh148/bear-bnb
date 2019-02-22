@@ -16,6 +16,12 @@
   /* border-color: #f09491; */
 }
 
+#headerlogo {
+  width: 150px;
+  float: left;
+  padding-top: 8px
+}
+
 ul {
   list-style-type: none;
   margin: 0;
