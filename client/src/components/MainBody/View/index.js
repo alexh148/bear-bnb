@@ -16,12 +16,10 @@ class DateForm extends Component {
 
   handleFromChange(event) {
     this.currentFrom = event.target.value;
-
   }
 
   handleToChange(event) {
     this.currentTo = event.target.value;
-
   }
 
   handleSubmit(event) {

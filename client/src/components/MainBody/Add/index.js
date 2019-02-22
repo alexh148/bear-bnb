@@ -49,9 +49,6 @@ class AddMain extends Component {
       </div>
     )
   }
-
-
-
 }
 
 
