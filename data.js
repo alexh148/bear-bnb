@@ -7,7 +7,9 @@ const DataSchema = new Schema(
     id: Number,
     title: String,
     description: String,
-    price: String
+    price: String,
+    availableFrom: Date,
+    availableTo: Date
   },
   { timestamps: true }
 );

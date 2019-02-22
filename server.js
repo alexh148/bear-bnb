@@ -70,7 +70,7 @@ router.delete("/deleteData", (req, res) => {
 router.post("/putData", (req, res) => {
   let data = new Data();
 
-  const { id, title, description, price } = req.body;
+  const { id, title, description, price, availableFrom, availableTo } = req.body;
 
   // if ((!id && id !== 0) || !message) {
   //   return res.json({
@@ -83,7 +83,8 @@ router.post("/putData", (req, res) => {
   data.title = title;
   data.description = description;
   data.price = price;
-
+  data.availableFrom = availableFrom;
+  data.availableTo = availableTo;
   data.save(err => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });

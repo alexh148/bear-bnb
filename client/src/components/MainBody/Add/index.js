@@ -7,10 +7,14 @@ class AddMain extends Component {
     this.title = "";
     this.desc = "";
     this.price = "";
+    this.availableFrom = "";
+    this.availableTo = "";
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDescChange = this.handleDescChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleavailableFromChange = this.handleavailableFromChange.bind(this);
+    this.handleavailableToChange = this.handleavailableToChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,6 +26,8 @@ class AddMain extends Component {
       title: this.title,
       description: this.desc,
       price: this.price,
+      availableFrom: this.availableFrom,
+      availableTo: this.availableTo
     });
   }
 
@@ -37,6 +43,14 @@ class AddMain extends Component {
     this.price = event.target.value;
   }
 
+  handleavailableToChange(event) {
+    this.availableTo = event.target.value;
+  }
+
+  handleavailableFromChange(event) {
+    this.availableFrom = event.target.value;
+  }
+
   render() {
     return (
       <div>
@@ -44,6 +58,8 @@ class AddMain extends Component {
         Title: <input type="text" onChange={this.handleTitleChange} /><br/><br/>
         Description: <input type="text" onChange={this.handleDescChange} /><br/><br/>
         Price: <input type="text" onChange={this.handlePriceChange} /><br/><br/>
+        Available From: <input type="date" onChange={this.handleavailableFromChange} /><br/><br/>
+        Available To: <input type="date" onChange={this.handleavailableToChange} /><br/><br/>
         <button type="submit"> Add Listing </button>
       </form>
       </div>
