@@ -5,7 +5,7 @@ const NavBar = (props) => (
   <header className="App-header">
 
   <ul>
-    <img id="headerlogo" src={require('./Bearbnb4.png')} />
+    <img href="/" id="headerlogo" src={require('./Bearbnb4.png')} />
     <li><a className="active" href="#home">Log In</a></li>
     <li><a href="#news">Sign Up</a></li>
     <li><a href="/spaces">View Listings</a></li>
