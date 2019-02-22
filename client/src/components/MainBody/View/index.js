@@ -94,6 +94,10 @@ class PropertyListContainer extends Component {
     this.setState({dateFrom: nextProps.dates.from, dateTo: nextProps.dates.to})
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   this.getData();
+  // }
+
   render() {
     return (
       <div>
