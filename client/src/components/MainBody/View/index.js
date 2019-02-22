@@ -94,6 +94,8 @@ const PropertyList = ({ data }) => {
       {data[i].title}<br></br>
       {data[i].description}<br></br>
       {data[i].price}<br></br>
+      {data[i].availableFrom}<br></br>
+      {data[i].availableTo}<br></br>
       </ul>)
     }
     return info
