@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 class DateForm extends Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class DateForm extends Component {
     this.state = {from: '', to: ''};
     this.currentFrom = "";
     this.currentTo = "";
+    this.myVar = ""
 
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleToChange = this.handleToChange.bind(this);
@@ -14,7 +16,6 @@ class DateForm extends Component {
 
   handleFromChange(event) {
     this.currentFrom = event.target.value;
-
   }
 
   handleToChange(event) {
@@ -22,8 +23,8 @@ class DateForm extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();;
-    this.setState({from: this.currentFrom, to: this.currentTo})
+    event.preventDefault();
+    this.setState({from: this.currentFrom, to: this.currentTo});
   }
 
 
@@ -48,68 +49,38 @@ class DateForm extends Component {
 class PropertyListContainer extends Component {
   constructor(props) {
     super(props);
-    this.myVar = {props}
-    this.state = {data: []}
+    this.state = ({data: ['hello']});
   }
 
-  getData(){
-    console.log(this.myVar)
-    this.setState({
-      data: [
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '3 bed spacious townhouse',
-          price: '£50 per night',
-          location: 'London'
-        },
-        {
-          title: '10 bed mansion spaceship',
-          price: '£400 per night',
-          location: 'Space'
-        }
-      ]
+
+
+
+  getData = function () {
+    return fetch('http://localhost:3001/api/getData').then(function(response){
+      return response.json().then((data) => {
+        return data.data
+      })
     })
+  }
+
+  setData() {
+    this.getData().then((resp)=> this.setState({data: resp}))
   }
 
 
   componentDidMount(){
-    this.getData();
+    this.setData()
+
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.myVar = nextProps.dates;
-    this.getData();
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.getData();
+  // }
 
   render() {
     return (
       <div>
       <PropertyList data={this.state.data} />
-      <p> Hey </p>
       </div>
     )
   }
@@ -121,7 +92,7 @@ const PropertyList = ({ data }) => {
     for (let i = 0; i < data.length; i++) {
       info.push(<ul id="houselistings"><br></br>
       {data[i].title}<br></br>
-      {data[i].location}<br></br>
+      {data[i].description}<br></br>
       {data[i].price}<br></br>
       </ul>)
     }
@@ -136,8 +107,6 @@ const PropertyList = ({ data }) => {
     </div>
   )
 }
-
-
 
 export default DateForm;
 

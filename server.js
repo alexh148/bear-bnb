@@ -6,13 +6,13 @@ const Data = require("./data");
 const cors = require("cors");
 require("dotenv").config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 const app = express();
 const router = express.Router();
 const path = require("path")
 
 // this is our MongoDB database
-const dbRoute = process.env.MONGODB_URI || "mongodb://localhost/bear-bnb";
+const dbRoute = process.env.MONGODB_URI || "mongodb+srv://alexh148:Potato4Parrot@cluster0-zhwno.mongodb.net/test?retryWrites=true";
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, "client", "build")))
@@ -70,16 +70,20 @@ router.delete("/deleteData", (req, res) => {
 router.post("/putData", (req, res) => {
   let data = new Data();
 
-  const { id, message } = req.body;
+  const { id, title, description, price } = req.body;
 
-  if ((!id && id !== 0) || !message) {
-    return res.json({
-      success: false,
-      error: "INVALID INPUTS"
-    });
-  }
-  data.message = message;
+  // if ((!id && id !== 0) || !message) {
+  //   return res.json({
+  //     success: false,
+  //     error: "INVALID INPUTS"
+  //   });
+  // }
+
   data.id = id;
+  data.title = title;
+  data.description = description;
+  data.price = price;
+
   data.save(err => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
