@@ -16,6 +16,26 @@
   /* border-color: #f09491; */
 }
 
+#button {
+  width: 290px;
+}
+
+#houselistings {
+
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-bottom: 2px solid #e5e5e5;
+  padding: 20px;
+  margin-bottom: 40px;
+  margin-left: 200px;
+  margin-right: 200px
+}
+#housetitle {
+  font-weight: bold;
+  font-size: 60px;
+
+}
+
 #headerlogo {
   width: 150px;
   float: left;
@@ -30,9 +50,6 @@ ul {
   background-color: #f09491;
 }
 
-#houselistings {
-  background-color: #fff2e6;
-}
 
 span {
   margin-left: 60;

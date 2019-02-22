@@ -5,6 +5,7 @@ import ViewHeader from './components/Header/View';
 import AddHeader from './components/Header/Add';
 import BookHeader from './components/Header/Book';
 import DateForm from './components/MainBody/View';
+import HomeMain from './components/MainBody/Home';
 import AddMain from './components/MainBody/Add';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -25,6 +26,7 @@ class App extends Component {
         <p id='mainbody'>
           <Route exact path = "/spaces" component={DateForm} />
           <Route exact path = "/spaces/new" component={AddMain} />
+          <Route exact path = "/" component={HomeMain} />
         </p>
         <Footer />
         </div>

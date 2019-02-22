@@ -42,9 +42,11 @@ class DateForm extends Component {
           <input type="date" onChange={this.handleToChange}/>
           <br></br>
           <br></br>
-          <input type="submit" value="View available listings"></input>
-          <PropertyListContainer dates={this.state}/>
+          <input id="button" type="submit" value="View available listings"></input>
+          <br></br>
+          <br></br>
         </form>
+        <PropertyListContainer dates={this.state}/>
       </p>
     )
   }
@@ -85,7 +87,6 @@ class PropertyListContainer extends Component {
 
   componentDidMount(){
     this.setData()
-    // this.getSpecificDates('2019-03-01T00:00:00.000Z', '2019-03-08T00:00:00.000Z')
   }
 
   componentWillReceiveProps(nextProps) {
@@ -93,10 +94,6 @@ class PropertyListContainer extends Component {
     console.log(nextProps);
     this.setState({dateFrom: nextProps.dates.from, dateTo: nextProps.dates.to})
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.getData();
-  // }
 
   render() {
     return (
@@ -109,15 +106,16 @@ class PropertyListContainer extends Component {
 
 const PropertyList = ({ data }) => {
   function showListingData(data){
+    console.log(data);
     var info = []
     for (let i = 0; i < data.length; i++) {
-      info.push(<ul id="houselistings"><br></br>
-      {data[i].title}<br></br>
+      info.push(<div align='center' id="houselistings">
+      <p id="housetitle">{data[i].title}</p><br></br>
       {data[i].description}<br></br>
       {data[i].price}<br></br>
-      {data[i].availableFrom}<br></br>
-      {data[i].availableTo}<br></br>
-      </ul>)
+      Available from: {data[i].availableFrom.substring(0, 10).split('-').reverse().join('-')}<br></br>
+      Available to: {data[i].availableTo.substring(0, 10).split('-').reverse().join('-')}<br></br>
+      </div>)
     }
     return info
   }
